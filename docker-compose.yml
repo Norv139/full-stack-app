@@ -5,8 +5,11 @@ services:
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "shop" 
+      POSTGRES_DB: "shop"
     volumes:
-      - ./:/docker-entrypoint-initdb.d/dump/dbexport.sql 
+      - ./dump/dbexport.sql:/docker-entrypoint-initdb.d/dbexport.sql
     ports:
       - "5001:5432"
+  
+volumes:
+  postgres-data:
