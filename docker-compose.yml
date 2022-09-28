@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "shop" 
+    volumes:
+      - ./:/docker-entrypoint-initdb.d/dump/dbexport.sql 
+    ports:
+      - "5001:5432"
