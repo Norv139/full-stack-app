@@ -1,6 +1,7 @@
 version: "3.9"
 services:
-  postgres:
+
+  db:
     image: postgres:13.3
     environment:
       POSTGRES_USER: "postgres"
@@ -10,6 +11,11 @@ services:
       - ./dump/dbexport.sql:/docker-entrypoint-initdb.d/dbexport.sql
     ports:
       - "5001:5432"
-  
-volumes:
-  postgres-data:
+
+  server:
+    build: server/
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    environment:
+      - USERTEST=postgresql://postgres:postgres@db:5432/shop
+    ports:
+      - 8000:8000
