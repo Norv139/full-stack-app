@@ -9,7 +9,7 @@
   Создать docker-compose файл для развертования:
   - [x] Web-сайт ( TS + React )
   - [ ] Сервер
-      - [x] Python [ FastApi + SQLAlchemy ]
+      - [x] [Python](https://github.com/Norv139/postgresDB/tree/python_server) [ FastApi + SQLAlchemy ]
       - [ ] NodeJS
   - [x] СУБД postgres + данные при запуске
 
