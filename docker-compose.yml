@@ -23,3 +23,9 @@ services:
       # host - в этом случае имя контейнера базы данных [db]
     ports:
       - 8000:8000
+
+  client:
+    build: client/
+    command: npm start
+    ports:
+      - 3000:3000

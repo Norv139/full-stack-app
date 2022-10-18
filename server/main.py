@@ -38,7 +38,7 @@ async def table_names():
 
 
 class ITable(BaseModel):
-    table: list[str]
+    table: list[object]
 
 @app.get("/tables/{table}", response_model=ITable)
 async def get_table(table:str) -> list[str]:
