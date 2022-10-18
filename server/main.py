@@ -1,64 +1,57 @@
-
-import json
 import os
+from typing import List
 import uvicorn
 
 # importing fastAPI moduls
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
+from pydantic import BaseModel
 
 # importing SQL settings and driver 
 from sqlalchemy import create_engine
 from databaseConfig import postgres 
 
 USERTEST = os.getenv('USERTEST', 'postgresql://postgres:postgres@localhost:5432/shop')
-
-
-description = """
-    ChimichangApp API helps you do awesome stuff. 🚀
-
-    ## Items
-
-    You can **read items**.
-
-    ## Users
-
-    You will be able to:
-
-    * **Create users** (_not implemented_).
-    * **Read users** (_not implemented_).
-"""
+db = create_engine(USERTEST)
 
 app = FastAPI()
 
 
+class IRoot(BaseModel):
+    read_doc: str
 
-
-db = create_engine(USERTEST)
-
-@app.get("/")
+@app.get("/", response_model=IRoot)
 async def root():
     return {
-        "read doc": "/redoc"
+        "read_doc": "/redoc"
     }
 
-@app.get("/tables")
+
+class ITables(BaseModel):
+    tables: list[str]
+
+@app.get("/tables", response_model=ITables)
 async def table_names():
 
-    table_names = db.table_names()
+    table_names:list[str] = db.table_names()
 
     return {"tables": table_names}
 
-@app.get("/tables/{table}")
-async def get_table(table:str):
+
+class ITable(BaseModel):
+    table: list[str]
+
+@app.get("/tables/{table}", response_model=ITable)
+async def get_table(table:str) -> list[str]:
 
     result = db.execute(f"select * from {table}")
 
-    anyList = []
+    anyList:list[str] = []
 
     for i in result:
         anyList.append(i)
 
-    return Response(content={table: anyList}, media_type="application/json")
+    return {"table": anyList}
+
 
 # if __name__ == "__main__":
 #     config = uvicorn.Config("main:app", log_level="info")
