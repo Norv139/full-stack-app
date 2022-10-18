@@ -41,7 +41,7 @@ class ITable(BaseModel):
     table: list[object]
 
 @app.get("/tables/{table}", response_model=ITable)
-async def get_table(table:str) -> list[str]:
+async def get_table(table:str):
 
     result = db.execute(f"select * from {table}")
 
