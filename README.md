@@ -8,9 +8,8 @@
 ## Задачи:
   Создать docker-compose файл для развертования:
   - [x] Web-сайт ( TS + React )
-  - [ ] Сервер
+  - [x] Сервер
       - [x] Python [ FastApi + SQLAlchemy ]
-      - [ ] NodeJS
   - [x] СУБД postgres + данные при запуске
 
 ## Установка:
