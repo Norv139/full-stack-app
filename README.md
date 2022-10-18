@@ -9,10 +9,9 @@
   Создать docker-compose файл для развертования:
   - [ ] Web-сайт ( TS + React )
   - [ ] Сервер
-      - [x] Python
+      - [x] Python [ FastApi + SQLAlchemy ]
       - [ ] NodeJS
-  - [x] СУБД postgres
-  - [x] Базой данных имеющей данный при запуске
+  - [x] СУБД postgres + данные при запуске
 
 ## Установка:
 ##### `docker-compose build` – установить 
