@@ -1,6 +1,5 @@
-# #  postgresDB
-
 ## Стэк:
+- front-and: TS + React
 - back-and: Python FastApi + SQLAlchemy
 - BD: `postgres`
 - Виртуализация: `Docker` 
