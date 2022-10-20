@@ -1,11 +1,10 @@
-FROM python:3.9
-
-ADD ./ /server
-ADD requirements.txt /server/
+FROM node
 
 WORKDIR /server
 
-RUN pip install -r requirements.txt
+COPY index.js /server/
+COPY package.json /server/
 
-# CMD ["python3", "main.py"]
-# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+RUN npm install
+
+# CMD [ "npm", "start"]

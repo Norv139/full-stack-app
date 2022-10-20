@@ -15,17 +15,12 @@ services:
 
   server:
     build: server/
-    command: uvicorn main:app --host 0.0.0.0 --port 8000
-    environment:
-      - USERTEST=postgresql://postgres:postgres@db:5432/shop
-      # USERTEST - глобальная переменная внутри Docker'а
-      # postgresql://[user]:[password]@[host]:[port]/[datebase]
-      # host - в этом случае имя контейнера базы данных [db]
+    command: npm run start
     ports:
       - 8000:8000
 
   client:
     build: client/
-    command: npm start
+    command: npm run start
     ports:
       - 3000:3000

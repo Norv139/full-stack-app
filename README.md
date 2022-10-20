@@ -7,9 +7,7 @@
 ## Задачи:
   Создать docker-compose файл для развертования:
   - [x] Web-сайт ( TS + React )
-  - [ ] Сервер
-      - [x] [Python](https://github.com/Norv139/postgresDB/tree/python_server) [ FastApi + SQLAlchemy ]
-      - [ ] NodeJS
+  - [x] [NodeJS](https://github.com/Norv139/postgresDB/tree/nodejs_server) [ Express + [pg](https://node-postgres.com)]
   - [x] СУБД postgres + данные при запуске
 
 ## Установка:
