@@ -6,9 +6,14 @@ const app = express()
 //const host = '0.0.0.0'
 const port = 8000
 
+const {
+    POSTGRES_HOST,
+    POSTGRES_PORT
+  } = process.env;
+
 client = new Pool({
-    host: 'db',
-    port: 5432,
+    host: POSTGRES_HOST || '0.0.0.0',
+    port: POSTGRES_PORT || 5001,
     user: 'postgres',
     password: 'postgres',
     database: 'shop',
