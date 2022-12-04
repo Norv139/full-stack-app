@@ -1,5 +1,5 @@
 ## Стэк:
-- front-and: TS + React
+- front-end: TS + React
 - back-and: Python FastApi + SQLAlchemy
 - BD: `postgres`
 - Виртуализация: `Docker` 
