@@ -1,7 +1,7 @@
 # #  postgresDB
 
 ## Стэк:
-- back-and: Python FastApi + SQLAlchemy
+- back-end: Python FastApi + SQLAlchemy
 - BD: `postgres`
 - Виртуализация: `Docker` 
 
